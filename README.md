@@ -1,68 +1,127 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **Atividade Calculadora**
 
-## Available Scripts
+> Agora que tivemos uma introdução sobre o que é React, vamos brincar um pouco com a montagem de componentes.
 
-In the project directory, you can run:
+<br>
 
-### `yarn start`
+## **Objetivo**
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Criar uma calculadora básica que oferece as seguintes opções:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Soma
+- Multiplicação
+- Divisão
+- Subtração
 
-### `yarn test`
+<br>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## **Requisitos**
 
-### `yarn build`
+1. O projeto precisa ser feito em React.js.
+2. Faça com que os botões dos números da calculadora sejam componentes, reutilize esse componentes para fazer todos os botões da calculadora.
+3. Crie uma interface minimamente responsiva.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
+<hr>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## **TO DO**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Vamos fazer uma calculadora que atenda todos os requisitos, para isso devemos seguir os seguintes passos.
 
-### `yarn eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## **Componentes**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [ ] Criar o componente **Calculadora**.
+- [ ] Criar o componente **Botão**.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## **Calculadora - Métodos**
 
-## Learn More
+- [ ] Criar método que irá mostrar o resultado.
+- [ ] Criar método que irá calcular de acordo com o operador.
+- [ ] Criar método que verifica se é um operador.
+- [ ] Criar método que insere números.
+- [ ] Criar método que reseta os cálculos.
+- [ ] Criar método que gerencia as ações de acordo com o botão pressionado.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **Botão - Métodos**
 
-### Code Splitting
+- [ ] Criar método que gerencia a ação ao pressionar o botão, usando a prop recebida da Calculadora.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<br>
 
-### Analyzing the Bundle Size
+## **Calculadora - Especificação dos Métodos**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### **contructor()**
 
-### Making a Progressive Web App
+- [ ] Criar o atributo `this.state` que seja um objeto que contenham os atributos `display`, `calculo`, `ligado` e `erro`.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+<br>
 
-### Advanced Configuration
+### **isOperator()**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- [ ] Deve receber como parâmetro um operador.
+- [ ] Deve conter uma variável onde tem todos os operadores possíveis.
+- [ ] Retornar `true` se o operador do parâmetro existir na array de operadores, se não retornar `false`.
 
-### Deployment
+<br>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### **resultado()**
 
-### `yarn build` fails to minify
+- [ ] Deve conter um try... catch... para que verifique se o calculo é possível.
+- [ ] Caso ocorrer um erro, mostrar no display a mensagem de erro, e após alguns segundos resetar todos os states.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<br>
+
+### **calcular()**
+
+- [ ] Deve receber como parâmetro tanto o símbolo, quanto o operador.
+- [ ] Se o calculo tiver algum valor e não incluir algum operador, adicionar o operador no fim do cálculo e do que será exibido no display.
+- [ ] Se não, verifica se a última posição é um operador, se realmente for, ai troca o operador pelo novo passado nos parâmetros.
+
+<br>
+
+### **inserirNumero()**
+
+- [ ] Deve receber como parâmetro o número que será disponibilizado no display.
+- [ ] Se o valor do parâmetro `número` for uma vírgula, trocar o valor para um ponto e então adicionar tanto no cálculo quanto no display.
+- [ ] Se não, adiciona o número no final do cálculo e do display.
+
+<br>
+
+### **resetar()**
+
+- [ ] Esse método simplesmente irá resetar todos os states do componente.
+
+<br>
+
+### **digitarNumero()**
+
+- [ ] Deve receber como parâmetro a `opção` que será o botão que foi pressionado na calculadora.
+- [ ] Verifica se a calculadora não deu algum erro e se ela está ligada.
+- [ ] Caso passe na condição, deve ser feito um `switch` que vai verificar as principais funções da calculadora, exceto para os botões `ON` e `OFF`.
+
+<br>
+
+### **ligar()**
+
+- [ ] Deve apenas _setar_ o state `ligado` para `true`.
+
+<br>
+
+### **desligar()**
+
+- [ ] Deve _setar_ o state `ligado` para `false`.
+- [ ] Deve rodar o método `resetar()`.
+
+<br>
+
+## **Botão - Especificação dos Métodos**
+
+### **acaoBotao()**
+
+- [ ] Deve executar a ação que o botão carrega através da prop `acao`.

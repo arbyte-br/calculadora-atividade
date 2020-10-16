@@ -1,0 +1,33 @@
+.calculadora {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  background-color: #9cfdff;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: inset -5px -10px 0 rgba(0, 0, 0, 0.3), 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.row {
+  display: flex;
+  flex-grow: 1;
+}
+
+.display {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  margin: 15px;
+  margin-bottom: 50px;
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: right;
+  background-color: #838383;
+  color: transparent;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.display.active {
+  background-color: #7985eb;
+  color: #ffffff;
+}
